@@ -1,0 +1,1 @@
+tic; processing('../examples/lena.pgm','../examples/lena.out.png',1); toc

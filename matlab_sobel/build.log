@@ -1,0 +1,137 @@
+Fri, 26 Jul 2013 10:25:38 UYT : make -j4 -C /home/haldos/Dropbox/Documentos/Investigacion/IPOL/ipol_demo_light/demo/app/matlab_sobel/src/matlab_sobel 
+make: se ingresa al directorio «/home/haldos/Dropbox/Documentos/Investigacion/IPOL/matlab_sobel/src/matlab_sobel»
+matlab -nodesktop -nosplash -nojvm -r "ipol_demo_compile; quit"
+/usr/local/bin/matlab: 1: /usr/local/MATLAB/R2011a/bin/util/oscheck.sh: /lib64/libc.so.6: not found
+[?1h=
+                                                      < M A T L A B (R) >
+                                            Copyright 1984-2010 The MathWorks, Inc.
+                                         Version 7.12.0.635 (R2011a) 64-bit (glnxa64)
+                                                        March 18, 2011
+
+ 
+  To get started, type one of these: helpwin, helpdesk, or demo.
+  For product information, visit www.mathworks.com.
+ 
+{Compiler version: 4.15 (R2011a)} 
+Processing /usr/local/MATLAB/R2011a/toolbox/images/mcc.enc
+Processing /usr/local/MATLAB/R2011a/toolbox/matlab/mcc.enc
+Processing /usr/local/MATLAB/R2011a/toolbox/shared/imageslib/mcc.enc
+Processing include files...
+2 item(s) added.
+Processing directories installed with MCR...
+The file lib/mccExcludedFiles.log contains a list of functions excluded from the CTF archive.
+0 item(s) added.
+Generating MATLAB path for the compiled application...
+Created 45 path items.
+{Begin validation of MEX files: Fri Jul 26 10:26:06 2013} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/images/private/applylutc.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/images/private/computeedge.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/images/private/imcomplementmex.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/images/private/imfilter_mex.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/images/private/imhistc.mexa64'.} 
+{Found MATLAB file '/usr/local/MATLAB/R2011a/toolbox/images/images/private/imhistc.m'.} 
+{MEX file 
+    '/usr/local/MATLAB/R2011a/toolbox/images/images/private/imhistc.mexa64' 
+ is valid. It contains 'mexFunction.'} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/images/private/imlincombc.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/images/private/imreconstructmex.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/images/private/int16touint16.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/images/private/int32touint32.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/images/private/int8touint8.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/iptformats/private/bitparse.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/iptformats/private/dicom_decode_rle_segment.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/iptformats/private/dicomlookup_helper.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/iptformats/private/dicomparse.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/iptformats/private/rnitfc.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/iptformats/private/tobits.mexa64'.} 
+{No conflicting MATLAB file found.} 
+{Validating '/usr/local/MATLAB/R2011a/toolbox/images/iptutils/iptcheckinput.mexa64'.} 
+{Found MATLAB file '/usr/local/MATLAB/R2011a/toolbox/images/iptutils/iptcheckinput.m'.} 
+{MEX file 
+    '/usr/local/MATLAB/R2011a/toolbox/images/iptutils/iptcheckinput.mexa64' 
+ is valid. It contains 'mexFunction.'} 
+{End validation of MEX files: Fri Jul 26 10:26:06 2013} 
+{Parsing file "/home/haldos/Dropbox/Documentos/Investigacion/IPOL/matlab_sobel/src/matlab_sobel/src/processing.m"
+	(Referenced from: "Compiler Command Line").} 
+{Parsing file "/usr/local/MATLAB/R2011a/toolbox/compiler/deploy/deployprint.m"
+	(Referenced from: "Compiler Command Line").} 
+{Parsing file "/usr/local/MATLAB/R2011a/toolbox/compiler/deploy/printdlg.m"
+	(Referenced from: "Compiler Command Line").} 
+{Deleting 17 temporary MEX authorization files.} 
+{Removing: '/tmp/0665docBFKZ_26205.auth'.} 
+{Removing: '/tmp/0665dPHhLK8_26205.auth'.} 
+{Removing: '/tmp/0665dbiyRKh_26205.auth'.} 
+{Removing: '/tmp/0665dJ8cYKq_26205.auth'.} 
+{Removing: '/tmp/0665dzF54Kz_26205.auth'.} 
+{Removing: '/tmp/0665dTmqcLI_26205.auth'.} 
+{Removing: '/tmp/0665dpPckLR_26205.auth'.} 
+{Removing: '/tmp/0665dqR8rL0_26205.auth'.} 
+{Removing: '/tmp/0665dGiwAL9_26205.auth'.} 
+{Removing: '/tmp/0665dPlnJLi_26205.auth'.} 
+{Removing: '/tmp/0665dpmdULr_26205.auth'.} 
+{Removing: '/tmp/0665dYfH5LA_26205.auth'.} 
+{Removing: '/tmp/0665dHCHhMJ_26205.auth'.} 
+{Removing: '/tmp/0665do4cuMS_26205.auth'.} 
+{Removing: '/tmp/0665dcYuHM1_26205.auth'.} 
+{Removing: '/tmp/0665dGSfVMa_26205.auth'.} 
+{Removing: '/tmp/0665divC9Mj_26205.auth'.} 
+{Generating file "lib/libmatrixp.h".} 
+{Generating file "lib/libmatrixp.cpp".} 
+{Generating file "lib/libmatrixp.exports".} 
+{Generating file "/home/haldos/Dropbox/Documentos/Investigacion/IPOL/matlab_sobel/src/matlab_sobel/lib/readme.txt".} 
+{Executing command: "/usr/local/MATLAB/R2011a/bin/mbuild"  -O -v -output "libmatrixp" -I"lib" "lib/libmatrixp.cpp" "lib/libmatrixp.exports" -link shared -outdir "lib"} 
+
+Warning: You are using gcc version "4.7.3-1ubuntu1)".  The version
+         currently supported with MATLAB Compiler is "4.3.4".
+         For a list of currently supported compilers see: 
+         http://www.mathworks.com/support/compilers/current_release/
+
+----------------------------------------------------------------
+-> mbuildopts.sh sourced from directory (DIR = $TMW_ROOT/bin)
+   FILE = /usr/local/MATLAB/R2011a/bin/mbuildopts.sh
+----------------------------------------------------------------
+->    TMW_ROOT              = /usr/local/MATLAB/R2011a
+->    CC                    = g++
+->    CC flags:
+         CFLAGS             = -fPIC -ansi -D_GNU_SOURCE -I/usr/local/MATLAB/R2011a/extern/include/cpp -I/usr/local/MATLAB/R2011a/extern/include -DUNIX -DX11 -DGLNXA64 -DGCC -pthread
+         CDEBUGFLAGS        = -g
+         COPTIMFLAGS        = -O -DNDEBUG
+         CLIBS              = -Wl,-rpath-link,/usr/local/MATLAB/R2011a/bin/glnxa64 -L/usr/local/MATLAB/R2011a/runtime/glnxa64  -lmwmclmcrrt -lm
+         arguments          = 
+->    LD                    = g++
+->    Link flags:
+         LDFLAGS            = -pthread -shared
+         LDDEBUGFLAGS       = -g
+         LDOPTIMFLAGS       = -O
+         arguments          = 
+----------------------------------------------------------------
+
+-> g++ -c  -Ilib -fPIC -ansi -D_GNU_SOURCE -I/usr/local/MATLAB/R2011a/extern/include/cpp -I/usr/local/MATLAB/R2011a/extern/include -DUNIX -DX11 -DGLNXA64 -DGCC -pthread  -O -DNDEBUG  "lib/libmatrixp.cpp" -o lib/libmatrixp.o
+
+
+-> cat /tmp/27126tmp_export_list > /tmp/27126processed_export_list
+
+-> g++ -O -pthread -shared  -o lib/libmatrixp.so  lib/libmatrixp.o -Wl,-rpath-link,/usr/local/MATLAB/R2011a/bin/glnxa64 -L/usr/local/MATLAB/R2011a/runtime/glnxa64  -lmwmclmcrrt -lm 
+
+
+[?1h=
+Warning: You are using gcc version "4.7.3-1ubuntu1)".  The version
+         currently supported with MATLAB Compiler is "4.3.4".
+         For a list of currently supported compilers see: 
+         http://www.mathworks.com/support/compilers/current_release/
+
+[?1h=[?1l>make: se sale del directorio «/home/haldos/Dropbox/Documentos/Investigacion/IPOL/matlab_sobel/src/matlab_sobel»
