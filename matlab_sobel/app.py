@@ -75,6 +75,7 @@ class app(base_app):
             shutil.copy(self.src_dir + os.path.join("matlab_sobel", 
                                                     "run_algo.sh"), prog_file2)
             shutil.os.chmod(prog_file2, 0775)
+            shutil.os.chmod(prog_file, 0775)
             shutil.copy(self.src_dir + os.path.join("matlab_sobel", "lib",
                                                     "libmatrixp.so"), prog_file3)
             # cleanup the source dir
