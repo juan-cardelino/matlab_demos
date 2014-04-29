@@ -1,0 +1,73 @@
+\chapter{Matlab Publications in IPOL}
+
+\section{Introduction}
+
+In the context of increasing the number of authors publishing on IPOL, it was proposed to reduce the amount of work required by the authors to submit an article for IPOL.
+Two of the main sources of extra work identified are the level of exigence of the software guidelines for the current language supported (C/C++), and the possibility of including new languages and the particular case of Matlab.
+In this report we propose an analysis of the problem and a roadmap to implement Matlab support on IPOL. Only the main ideas is discussed here and the technical discussion is addressed in the referenced document [1].
+
+\section{Analysis}
+
+Matlab is a widely used tool in our research community and many researchers students only know how to work in Matlab. Transcribing this code to C/C++ is perceived as a huge barrier to publish in IPOL. This is specially relevant in the Audio Processing Community, where almost everyone codes in Matlab.
+
+\section{Problems to Solve}
+\begin{enumerate}
+\item Licensing
+\item Software Guidelines
+\item Review Process
+\item Demo Server Implementation
+\end{enumerate}
+
+\section{Team}
+\begin{enumerate}
+\item Juan: lead the initiative
+\item Some help from JRASP: Haldo and Benoit
+\end{enumerate}
+
+\section{Current status}
+\begin{enumerate}
+\item Technical:
+\begin{enumerate}
+\item During the meeting Juan was able to run a matlab code as a standalone binary.
+\item The binary was included into a demo that did not require any modification of the IPOL demo server
+\item The demo is included in the development server purple
+\end{enumerate}
+\item Guidelines:
+\begin{enumerate}
+\item Some rough ideas have been proposed, but more discussion should follow
+\end{enumerate}
+\item Submission process
+\begin{enumerate}
+\item We outlined the main steps but again it should be discussed and put in sync with the new propositions for submission process.
+\end{enumerate}
+\end{enumerate}
+
+
+\section{Timeline}
+\begin{enumerate}
+\item Propose a structure for the demo system. DONE
+\item Put the matlab demo system under test for a short period. 1 month
+\item As part of this process some publications or demos are going to be tested by the team (written by the same team). 2 months.
+\item Given that test are successful, we will start a proof of concept inviting external authors. We propose to invite three papers this year (6 months).
+\end{enumerate}
+
+
+
+\section{Scope}
+The extra work added is the new matlab demos, the rest of the system remains the same. For this reason, this extra work will be handled by the matlab team. The scientific review will be carried by IPOL members as usual. The code review should be also handled by regular IPOL editors/reviewers.
+
+\section{Papers to invite}
+\begin{enumerate}
+\item Juan: Fast Marching
+\item G. Peyre: TBD
+\item S. Mallat: TBD
+\item Audio: TBD
+\end{enumerate}
+
+\section{Conclusions}
+From the preliminary test performed, and further discussion with the team, we conclude that it is possible to have Matlab demos using the same server, with a very small increase in the workload of IPOL staff. This extra workload will be handled by and external team. More testing is needed but the main technical problems were tested.
+In addition, the team should design new Software Guidelines and propose a slightly modified submission process.
+The main goal is to have some matlab publications in a one year period.
+
+\section{References}
+[1] "Technical Proposal for an IPOL Matlab Demo Server" B. Petitpas, J. Cardelino. 

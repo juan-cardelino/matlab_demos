@@ -1,0 +1,34 @@
+\documentclass[a4paper,10pt]{report}
+
+\usepackage[english]{babel}
+\usepackage[none]{hyphenat}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage[tight,scriptsize]{subfigure}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
+\hypersetup{hypertexnames, plainpages=false,colorlinks=true}
+
+% Title Page
+\title{}
+\author{}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{abstract.tex}
+\end{abstract}
+\input{matlab_report.tex}
+
+\clearpage
+
+\nocite *
+\bibliographystyle{unsrt}
+\bibliography{../../papers/tools/slow_motion}
+\end{document}
+
+

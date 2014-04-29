@@ -1,0 +1,96 @@
+\chapter{Technical Proposal for an IPOL Matlab Demo Server}
+
+
+\section{Solution from Juan}:
+
+There's a matlab code submitted by author, with possibility to add some exotic/personnal toolbox
+
+\subsection{Compilation}
+\begin{itemize}
+\item a wrapper CPP source file that serves as entry point (main), handles input data and parameters and passes them to the matlab code of the author.
+\item the server compile the binaries by using a matlab script that compile with "mcc" the matlab code and with "mbuild" construct the execution binaries which NEED a matlab key.
+\end{itemize}
+
+
+\subsection{Execution}
+The generated binary depends on Matlab runtime libraries.\\
+
+So it needs :
+\begin{itemize}
+\item the sources
+\item the cpp wrapper (can be generated)
+\item the script (can be generate) 
+\item a Matlab Compiler Runtime Environment (MCR) that need nothing special to run
+\item a person that can compile WITH a matlab token for compilation with the same version AS the MCR. This happens only one time, offline and can wait for license token.
+\end{itemize}
+
+Note: at the end for running a submission, it needs only one key to compile and none to run.
+
+\section{Server modifications}
+
+The server needs to have MCR installed no further modifications are required.
+
+\section{Distribution of workload}
+\subsection{Author job}
+
+\begin{itemize}
+\item Put his sources into a way that it is easy to use
+\begin{itemize}
+\item a scr folder
+\item  a toolbox folder (with all the .m files that is needed for execution but is not the algorithm)
+\end{itemize}
+\item They will be probably required to comply with a certain matlab version.
+\item They will have to comply with a certain input/ouput interface in their matlab main function.
+\end{itemize}
+
+
+
+\subsection{Editor job (matlab team)}
+
+- generate or write the cpp file AND the script 
+- compile with the same version as the MCR the code for generating the binaries
+
+\subsection{Reviewer job}
+-The scientific review stays unchanged
+-The software review
+
+\section{Update policy}
+Any given matlab usually survives quite well for many years (3 or 4 server OS(linux) versions).
+
+
+\section{Problems to Solve}
+
+\begin{itemize}
+\item how do we update the MCR ?
+\item if it not update :
+\begin{itemize}
+\item no author in the future
+\item One solution is to update and if a demo doesn't work anymore let it die, or put in a queue for update.
+\end{itemize}
+\item if it updates :  will the old demo work?
+\item Licensing do we need to RE-compile every programs everytime we update the MCR ? \\
+Is it possible to run concurrent matlab processes without a license token?
+Yes, using the MCR (Matlab Compiler Runtime) running the demos is free and legal. Tokens are needed only to compile (one token 1 time).
+\end{itemize}
+
+\section{How it will works (submission)}
+
+Steps : 
+\begin{enumerate}
+\item We receive a matlab code with article 
+\item An editor analyses the code according to the software guidelines (to be defined)
+\item The editor writes (or automatically generates) the wrapper cpp file, compiles and generates the final binary
+\item The editor or author writes a demo calling the generated binary
+\item The rest of the process is the same as a regular IPOL publication
+\end{enumerate}
+
+
+
+\section{Software Guidelines}
+
+This has to be defined, but some hints are provided:
+\begin{itemize}
+\item Matlab users are used to plot data interleaved in the code. Authors should be required to use a flag to turn on/off the plots. It is advised not to remove them, because it might be useful for review.
+\item The input/output interface of the main matlab function has to comply with a certain structure.
+\end{itemize}
+
