@@ -1,0 +1,160 @@
+%-------------------------------------------------------------------------------
+\section{Compilation How To}
+%-------------------------------------------------------------------------------
+\subsection{Introduction}
+MATLAB programs can be compiled into standalone executable applications using
+the MATLAB compiler.  The MATLAB compiler can be invoked from within MATLAB or
+from the command line. For example, in the purple server the location of the
+MATLAB compiler is \texttt{/usr/local/MATLAB/bin/mcc}.
+
+%-------------------------------------------------------------------------------
+\subsection{Compiling a simple script}
+Compiling a simple MATLAB script is very easy. Suppose we have created the
+following simple script, and saved it as \texttt{test\_script.m}
+\begin{lstlisting}[numbers=left,title={First version of \texttt{test\_script.m}},captionpos=b]
+function test_script()
+
+a = 1;
+
+disp('Hello World.');
+\end{lstlisting}
+
+Compiling it from within MATLAB would require executing the following command:
+
+\begin{lstlisting}
+mcc -m test_script
+\end{lstlisting}
+
+Compiling it from outside MATLAB (from command line) would require calling the
+\texttt{mcc} script. In purple this would be done as:
+
+\begin{lstlisting}[language=bash]
+/usr/local/MATLAB/bin/mcc -m test_script
+\end{lstlisting}
+
+
+Once the MATLAB compiler has finished, \textbf{it will produce two important
+  files}: One is the executable binary file, that in this case would be called
+\texttt{test\_script}. The other one is a bash script, which in this case would
+be called \texttt{run\_test\_script.sh}. The bash script sets the enviornment
+variables needed to load the necessary libraries for running the script. It will
+be this bash script that will need to be called from the IPOL demo.  The bash
+script takes as first argument the path to the MATLAB root directory
+(\texttt{/usr/local/MATLAB} in purple). The rest of the arguments are passed to
+the MATLAB script. Our simple script does not require any argument, so if we
+were in purple, it would be simply called by:
+\begin{lstlisting}[language=bash]
+./run_test_script.sh /usr/local/MATLAB
+\end{lstlisting}
+
+
+%-------------------------------------------------------------------------------
+\subsection{Passing arguments to the script}
+So far our example script was very simple, but a useful script will probably
+require passing arguments to it. Fortunately this is also very simple, since
+arguments passed to the bash script are directly passed to the compiled MATLAB
+script. The only important thing to have in mind is that \textbf{a compiled
+  MATLAB script receives the arguments as character strings}. See the following
+snippet of code for a new version of our test script.
+
+\begin{lstlisting}[numbers=left,title={Second version of \texttt{test\_script.m}},captionpos=b]
+function y = test_script(x)
+
+if isdeployed
+    x = str2num(x);
+end
+
+y = 2 * x;
+
+disp(sprintf('Your result is %f',y));
+\end{lstlisting}
+
+Let us examine lines 3 to 5. The condition tested in line 3 uses the
+\texttt{isdeployed} MATLAB function, which yields a \texttt{true} value when the
+script is run a compiled code, and yields \texttt{false} when it is run as a
+normal \texttt{.m} script inside MATLAB. Since compiled MATLAB code receives the
+arguments as strings of characters, the sentence in line 4 converts the argument
+to a numeric variable.
+
+After compilation, an invocation to this script in purple, passing the number 3.5
+as argument would be done as:
+
+\begin{lstlisting}[language=bash]
+./run_test_script.sh /usr/local/MATLAB 3.5
+\end{lstlisting}
+
+And the output should be:
+
+\begin{lstlisting}[language=bash]
+Your result is 7.000000
+\end{lstlisting}
+
+Note that other useful types of arguments are matrices or filenames. Matrices
+need to be specified inside double quotes. The following example call would pass as arguments the filename ``lena.png'' and the matrix $[3,~2,~1]$:
+
+\begin{lstlisting}[language=bash]
+./run_test_script.sh /usr/local/MATLAB lena.png "[3 2 1]" 
+\end{lstlisting}
+
+%-------------------------------------------------------------------------------
+\subsection{Using multiple \texttt{.m} files}
+
+A normal MATLAB project will proably consist of multiple \texttt{.m} files, and
+a main file for executing the program. This needs to be communicated to the
+MATLAB compiler \texttt{mcc} using the \texttt{-a} option.  For example, if our
+script \texttt{test\_script.m} calls other \texttt{.m} scripts located in a
+local folder called \texttt{toolbox}, the compiler invocation would need to look like
+this:
+
+\begin{lstlisting}[language=bash]
+/usr/local/MATLAB/bin/mcc -a ./toolbox -m test_script
+\end{lstlisting}
+
+This is telling the compiler to add all files in the \texttt{toolbox} folder and
+all subfolders. Note that the behaviour of compiled code is different than when
+running a normal \texttt{.m} script inside MATLAB. If we were running the script
+inside MATLAB, we would probably use the command \mcode{addpath ./toolbox} to
+tell MATLAB to look for \texttt{.m} files inside the \texttt{toolbox}
+folder. This is not possible in compiled code. In fact using the
+\texttt{addpath} function inside a script that will be compiled will probably
+produce an error at runtime causing the termination of the program. The
+workaround for this is once again to use the \texttt{isdeployed} function to
+check if the script is run as compiled code or as a regular MATLAB script.
+
+Suppose we create a folder called \texttt{toolbox} and inside it a file named \texttt{multiply.m} containing:
+
+\begin{lstlisting}[numbers=left,title={\texttt{multiply.m}},captionpos=b]
+function c = multiply(a,b)
+
+c = a * b;
+\end{lstlisting}
+
+The new version of our \texttt{test\_script.m} would look like this:
+
+\begin{lstlisting}[numbers=left,title={Third version of \texttt{test\_script.m}},captionpos=b]
+function y = test_script(x)
+
+if isdeployed
+    x = str2num(x);
+else
+    addpath ./toolbox
+end
+
+y = multiply(2,x);
+
+disp(sprintf('Your result is %f',y));
+\end{lstlisting}
+
+And the compilation could be done as any of the following:
+
+\begin{lstlisting}[language=bash]
+/usr/local/MATLAB/bin/mcc -a ./toolbox -m test_script
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash]
+/usr/local/MATLAB/bin/mcc -a ./toolbox/*.m -m test_script
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash]
+/usr/local/MATLAB/bin/mcc -a ./toolbox/multiply.m -m test_script
+\end{lstlisting}
