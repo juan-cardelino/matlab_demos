@@ -1,0 +1,7 @@
+Fri, 30 May 2014 12:08:14 UYT : make -C /home/jlezama/ipol/demo/app/matlab_gauss/src/
+make: Entering directory `/home/jlezama/ipol/demo/app/matlab_gauss/src'
+mcc -m gauss.m -a lib -R -nodisplay
+Warning: No display specified.  You will not be able to display graphics on the screen.
+# mkdir -p ../bin
+# mv gauss run_gauss.sh readme.txt mccExcludedFiles.log ../bin
+make: Leaving directory `/home/jlezama/ipol/demo/app/matlab_gauss/src'
