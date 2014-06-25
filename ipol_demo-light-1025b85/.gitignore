@@ -1,0 +1,30 @@
+# don't rewrite the deployed conf file
+demo.conf
+
+# compiled Python code
+*.pyc
+
+# download, source and binary files
+app_available/*/dl
+app_available/*/src
+app_available/*/bin
+app_example/*/dl
+app_example/*/src
+app_example/*/bin
+# build log
+app_available/*/*.log
+app_example/*/*.log
+
+# temporary and archive files
+app_available/*/tmp
+app_available/*/archive
+app_example/*/tmp
+app_example/*/archive
+
+# ignore the thumbnails
+app_available/*/input/.__*
+app_example/*/input/.__*
+
+#ignore backup files
+*~
+
