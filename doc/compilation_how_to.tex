@@ -4,7 +4,7 @@
 \subsection{Introduction}
 MATLAB programs can be compiled into standalone executable applications using
 the MATLAB compiler.  The MATLAB compiler can be invoked from within MATLAB or
-from the command line. For example, in the purple server the location of the
+from the command line. For example, in the \emph{purple} server the location of the
 MATLAB compiler is \texttt{/usr/local/MATLAB/bin/mcc}.
 
 %-------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ mcc -m test_script
 \end{lstlisting}
 
 Compiling it from outside MATLAB (from command line) would require calling the
-\texttt{mcc} script. In purple this would be done as:
+\texttt{mcc} script. In \emph{purple} this would be done as:
 
 \begin{lstlisting}[language=bash]
 /usr/local/MATLAB/bin/mcc -m test_script
@@ -40,9 +40,9 @@ be called \texttt{run\_test\_script.sh}. The bash script sets the enviornment
 variables needed to load the necessary libraries for running the script. It will
 be this bash script that will need to be called from the IPOL demo.  The bash
 script takes as first argument the path to the MATLAB root directory
-(\texttt{/usr/local/MATLAB} in purple). The rest of the arguments are passed to
+(\texttt{/usr/local/MATLAB} in \emph{purple}). The rest of the arguments are passed to
 the MATLAB script. Our simple script does not require any argument, so if we
-were in purple, it would be simply called by:
+were in \emph{purple}, it would be simply called by:
 \begin{lstlisting}[language=bash]
 ./run_test_script.sh /usr/local/MATLAB
 \end{lstlisting}
@@ -76,7 +76,7 @@ normal \texttt{.m} script inside MATLAB. Since compiled MATLAB code receives the
 arguments as strings of characters, the sentence in line 4 converts the argument
 to a numeric variable.
 
-After compilation, an invocation to this script in purple, passing the number 3.5
+After compilation, an invocation to this script in \emph{purple}, passing the number 3.5
 as argument would be done as:
 
 \begin{lstlisting}[language=bash]
@@ -158,3 +158,17 @@ And the compilation could be done as any of the following:
 \begin{lstlisting}[language=bash]
 /usr/local/MATLAB/bin/mcc -a ./toolbox/multiply.m -m test_script
 \end{lstlisting}
+
+%-------------------------------------------------------------------------------
+\subsection{Displaying figures}
+If your MATLAB code uses the \texttt{figure()} function to display plots, it is
+possible that the compiled program when executed, waits for the closing of the
+figures windows to terminate. Since in \emph{purple} you do not have access to the
+graphical interface, we recommend turning off the displaying of figures in the
+compiled program, by adding the following option to the compilation command
+\texttt{mcc}:
+\begin{lstlisting}[language=bash]
+-R -nodisplay
+\end{lstlisting}
+The \texttt{-R} option tells the compiler the MATLAB options that should be used
+at runtime.
