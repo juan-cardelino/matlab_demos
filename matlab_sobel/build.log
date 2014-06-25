@@ -1,5 +1,5 @@
-Fri, 26 Jul 2013 13:20:44 UYT : make -j4 -C /home/haldos/Dropbox/Documentos/Investigacion/IPOL/ipol_demo_light/demo/app/matlab_sobel/src/matlab_sobel 
-make: se ingresa al directorio «/home/haldos/Dropbox/Documentos/Investigacion/IPOL/matlab_demos/matlab_sobel/src/matlab_sobel»
+Wed, 25 Jun 2014 14:35:00 UYT : make -j4 -C /home/juan/juanc/soft/develop/ipol_demo-light-1025b85/app/matlab_sobel/src/matlab_sobel 
+make: Entering directory `/home/juan/juanc/develop/git/ipol/matlab_demos/matlab_sobel/src/matlab_sobel'
 ls
 examples
 ipol_demo_compile.m
@@ -12,4 +12,4 @@ readme.txt~
 run_algo.sh
 run_mac.sh
 src
-make: se sale del directorio «/home/haldos/Dropbox/Documentos/Investigacion/IPOL/matlab_demos/matlab_sobel/src/matlab_sobel»
+make: Leaving directory `/home/juan/juanc/develop/git/ipol/matlab_demos/matlab_sobel/src/matlab_sobel'

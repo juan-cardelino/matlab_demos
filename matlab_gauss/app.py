@@ -17,6 +17,7 @@ class app(base_app):
     """ non-local means denoising app """
 
     title = "MATLAB Gaussian Filter"
+    xlink_article = 'http://www.ipol.im/'
 
     input_nb = 1
     input_max_pixels = 700 * 700 # max size (in pixels) of an input image
@@ -259,9 +260,9 @@ class app(base_app):
 
 
         #noisy and denoised images
-        p = self.run_proc(['run_gauss.sh', '/usr/local/MATLAB', 'input_0.png',
+        p = self.run_proc(['run_gauss.sh', self.matlab_path, 'input_0.png',
                            'output_1.png', str(sigma)],
-                           stdout=None, stderr=None, env={'PATH':'/usr/bin:/bin'})
+                           stdout=None, stderr=None) #, env={'PATH':'/usr/bin:/bin'}
         self.wait_proc(p, timeout*0.8)
 
 

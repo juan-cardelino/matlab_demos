@@ -1,0 +1,42 @@
+%-------------------------------------------------------------------------------
+\section{Matlab Demo How To}
+%-------------------------------------------------------------------------------
+\subsection{Introduction}
+Let MATLABROOT be the path to the matlab instalation, thus MATLAB compiler will be located in \texttt{MATLABROOT/bin}.
+In this document we treat matlab as another compiler thus it should be added to the user/system path.
+In \emph{purple} server, this is already added to system path.
+
+%-------------------------------------------------------------------------------
+\subsection{Steps}
+Add Matlab's Compiler to system path
+\begin{lstlisting}
+export PATH=$PATH:/usr/local/MATLAB
+\end{lstlisting}
+
+Makefile
+
+build method
+The build method is the same as a regular demo. The only
+
+run_algo
+As explained in section \ref{sec:compilation}
+\begin{lstlisting}[language=bash]
+./run_test_script.sh /usr/local/MATLAB lena.png "[3 2 1]" 
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash]
+./run_test_script.sh /usr/local/MATLAB 3.5
+\end{lstlisting}
+
+And the output should be:
+
+\begin{lstlisting}[language=bash]
+Your result is 7.000000
+\end{lstlisting}
+
+Note that other useful types of arguments are matrices or filenames. Matrices
+need to be specified inside double quotes. The following example call would pass as arguments the filename ``lena.png'' and the matrix $[3,~2,~1]$:
+
+
+%-------------------------------------------------------------------------------
+
