@@ -7,17 +7,8 @@
 # Packages
 *.egg
 *.egg-info
-dist
-build
-eggs
-parts
-bin
-var
-sdist
 develop-eggs
 .installed.cfg
-lib
-lib64
 
 # Installer logs
 pip-log.txt
@@ -34,3 +25,23 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+# download, source and binary files
+demos/*/dl
+demos/*/src
+demos/*/bin
+
+# build log
+demos/*/*.log
+
+
+# temporary and archive files
+demos/*/tmp
+demos/*/archive
+
+# ignore the thumbnails
+demos/*/input/.__*
+
+
+#ignore backup files
+*~
