@@ -205,7 +205,7 @@ class empty_app(object):
         newenv.update(env)
         # TODO clear the PATH, hard-rewrite the exec arg0
         # TODO use shell-string execution
-       	newenv.update({'PATH' : self.bin_dir+":"+newenv['PATH']})
+        newenv.update({'PATH' : self.bin_dir+":"+newenv['PATH']})
         # run
         return Popen(args, stdin=stdin, stdout=stdout, stderr=stderr,
                      env=newenv, cwd=self.work_dir)

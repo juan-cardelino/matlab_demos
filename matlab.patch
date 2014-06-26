@@ -1,0 +1,28 @@
+--- lib/empty_app.py	2014-04-21 02:39:01.000000000 -0300
++++ /home/juan/juanc/develop/git/ipol/matlab_demos/ipol_demo-light-1025b85/lib/empty_app.py	2014-06-26 14:03:29.821411655 -0300
+@@ -73,7 +73,7 @@
+             cherrypy.tools.staticdir(dir=self.static_dir,
+                                      content_types=mime_types)\
+                                      (lambda x : None)
+-
++     	self.matlab_path=cherrypy.config.get('matlab.path','/usr/local/MATLAB')
+ 
+     def __getattr__(self, attr):
+         """
+@@ -130,6 +130,7 @@
+         self.cfg.setdefault('info', {})
+         self.cfg.setdefault('meta', {})
+ 
++
+     #
+     # UPDATE
+     #
+@@ -204,7 +205,7 @@
+         newenv.update(env)
+         # TODO clear the PATH, hard-rewrite the exec arg0
+         # TODO use shell-string execution
+-        newenv.update({'PATH' : self.bin_dir})
++        newenv.update({'PATH' : self.bin_dir+":"+newenv['PATH']})
+         # run
+         return Popen(args, stdin=stdin, stdout=stdout, stderr=stderr,
+                      env=newenv, cwd=self.work_dir)
