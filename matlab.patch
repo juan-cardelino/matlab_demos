@@ -5,7 +5,7 @@
                                       content_types=mime_types)\
                                       (lambda x : None)
 -
-+     	self.matlab_path=cherrypy.config.get('matlab.path','/usr/local/MATLAB')
++     	self.matlab_path=cherrypy.config.get('matlab.path','/usr/local/matlab/matlab')
  
      def __getattr__(self, attr):
          """
